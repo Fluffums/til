@@ -7,7 +7,13 @@ NB. directories =: 13 : '({."1 (1!:0 y)) #~ (<''----d-'') = 4 {"1 (1!:0 y)' NB. 
 directories =: ([: ({."1) 1!:0) #~ (<'----d-') = 4 ({"1) 1!:0
 dirnames =: directories '*'
 
-outt =: ; dirnames ,. < LF NB. unbox dirnames with LF
+outTitle =: < 'title' , 2 # LF
+outHeader =: < 'header.md' , 2 # LF
+outCategories =: < (<'### Categories',LF) ; < (<'- [') ,. dirnames ,. (<'](#') ,. dirnames ,. (<')',LF)
+outContents =: < (<LF,'---',LF,'### ') ,. dirnames ,. < LF
+
+outputText =: outTitle ; outHeader ; outCategories ; outContents
+outt =: ; < S:0 outputText
 outt 1!:2 <'README.md'
 exit ''
 
