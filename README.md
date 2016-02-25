@@ -3,9 +3,9 @@ title
 header.md
 
 ### Categories
-- [git](#git)
-- [rails](#rails)
-- [ruby](#ruby)
+- [Git](#git)
+- [Rails](#rails)
+- [Ruby](#ruby)
 
 ---
 ### git

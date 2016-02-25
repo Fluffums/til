@@ -7,9 +7,11 @@ NB. directories =: 13 : '({."1 (1!:0 y)) #~ (<''----d-'') = 4 {"1 (1!:0 y)' NB. 
 directories =: ([: ({."1) 1!:0) #~ (<'----d-') = 4 ({"1) 1!:0
 dirnames =: directories '*'
 
+capitalize =: a. {~ [: (_32&+@{. , }.) a. I. ]
+
 outTitle =: < 'title' , 2 # LF
 outHeader =: < 'header.md' , 2 # LF
-outCategories =: < (<'### Categories',LF) ; < (<'- [') ,. dirnames ,. (<'](#') ,. dirnames ,. (<')',LF)
+outCategories =: < (<'### Categories',LF) ; < (<'- [') ,. (capitalize each dirnames) ,. (<'](#') ,. dirnames ,. (<')',LF)
 outContents =: < (<LF,'---',LF,'### ') ,. dirnames ,. < LF
 
 outputText =: outTitle ; outHeader ; outCategories ; outContents
